@@ -6,12 +6,16 @@ import io.restassured.path.json.JsonPath;
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 import org.testng.Assert;
 
 
 public class GoogleMapsAPITest 
 {
-    public static void main(String[] args)
+    public static void main(String[] args) throws IOException
     {
     	//Hamcrest library is being used for validation
     	//Validate is add API is working as expected
@@ -21,8 +25,15 @@ public class GoogleMapsAPITest
     	//then - validate the response
     	
     	RestAssured.baseURI="https://rahulshettyacademy.com";
-    	String response=given().queryParam("key","qaclick123").header("Content-Type","application/json").body(Payloads.mapsPostPayload()).when().post("maps/api/place/add/json").then().assertThat().statusCode(200).
-    	body("scope",equalTo("APP")).header("Server","Apache/2.4.52 (Ubuntu)").extract().response().asString();
+    	String response = given().queryParam("key","qaclick123")
+    		    .header("Content-Type","application/json")
+    		    .body(new String(Files.readAllBytes(Paths.get("/Users/anshikagupta/Desktop/development/RESTAssured/staticDataPayload.json"))))
+    		    .when().post("/maps/api/place/add/json")
+    		    .then().assertThat().statusCode(200)
+    		    .body("scope", equalTo("APP"))
+    		    .header("Server","Apache/2.4.52 (Ubuntu)")
+    		    .extract().response().asString();
+    	
     	//After assertThat function everything is validation
     	//i am removing then().log().all()
     	System.out.println(response);
@@ -33,13 +44,23 @@ public class GoogleMapsAPITest
     	
     	//Update place
     	
-    	String putResponse=given().queryParam("key","qaclick123").header("Content-Type","application/json").body(Payloads.mapsPutPayload(placeId)).when().put("maps/api/place/update/json").then().assertThat().statusCode(200).
-    	body("msg",equalTo("Address successfully updated")).extract().asString();
+    	String putResponse=given().queryParam("key","qaclick123")
+    			.header("Content-Type","application/json")
+    			.body(Payloads.mapsPutPayload(placeId))
+    			.when().put("maps/api/place/update/json")
+    			.then().assertThat().statusCode(200)
+    			.body("msg",equalTo("Address successfully updated"))
+    			.extract().asString();
     	
     	//Get updated place
     	
-    	String getResponse=given().log().all().queryParam("key","qaclick123").queryParam("place_id", placeId).when().
-    	get("maps/api/place/get/json").then().log().all().assertThat().statusCode(200).extract().response().asString();
+    	String getResponse=given().log().all().queryParam("key","qaclick123")
+    			.queryParam("place_id", placeId)
+    			.when().get("maps/api/place/get/json")
+    			.then().log().all().assertThat().statusCode(200)
+    			.extract().response().asString();
+    	
+    	
     	JsonPath js1=new JsonPath(getResponse);
     	String address=js1.getString("address");
     	
