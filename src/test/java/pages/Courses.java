@@ -1,8 +1,12 @@
 package pages;
 
-public class Courses {
+import org.testng.annotations.Test;
 
-	public static void main(String[] args) {
+import parseresponse.ParsingResponse;
+
+public class Courses {
+	@Test
+	public void main() {
 		// TODO Auto-generated method stub
 		ParsingResponse.courseJsonParse();
 

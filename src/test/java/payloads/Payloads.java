@@ -1,4 +1,4 @@
-package pages;
+package payloads;
 
 public class Payloads {
 	public static String mapsPostPayload()

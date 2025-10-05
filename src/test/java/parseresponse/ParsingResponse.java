@@ -1,13 +1,14 @@
-package pages;
+package parseresponse;
 import io.restassured.path.json.JsonPath;
+import payloads.Payloads;
 
 public class ParsingResponse {
 	
 	public static void updatedMapResponse(String response)
-	{   System.out.print(response);
+	{   System.out.println(response);
 		JsonPath js1=new JsonPath(response);
 		String phonenum=js1.get("phone_number");
-		System.out.print(phonenum);
+		System.out.println(phonenum);
 	}
 	public static void courseJsonParse()
 	{

@@ -2,6 +2,8 @@ package pages;
 
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
+import parseresponse.ParsingResponse;
+import payloads.Payloads;
 
 import static io.restassured.RestAssured.*;
 import static org.hamcrest.Matchers.*;
@@ -51,6 +53,7 @@ public class GoogleMapsAPITest
     			.then().assertThat().statusCode(200)
     			.body("msg",equalTo("Address successfully updated"))
     			.extract().asString();
+    	System.out.println(putResponse);
     	
     	//Get updated place
     	
@@ -62,10 +65,10 @@ public class GoogleMapsAPITest
     	
     	
     	JsonPath js1=new JsonPath(getResponse);
-    	String address=js1.getString("address");
+    	String actualAddress=js1.getString("address");
     	
-    	String newAddress = "70 Summer walk, USA"; 
-    	Assert.assertEquals(address, newAddress);
+    	String expectedAddress = "70 Summer walk, USA"; 
+    	Assert.assertEquals(actualAddress, expectedAddress);
     	
     	ParsingResponse.updatedMapResponse(getResponse);
     	
