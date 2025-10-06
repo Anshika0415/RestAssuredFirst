@@ -2,12 +2,12 @@
 <testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2025-10-05T23:18:17 IST" name="Default suite" finished-at="2025-10-05T23:18:19 IST" duration-ms="1986">
+  <suite started-at="2025-10-06T23:05:44 IST" name="Default suite" finished-at="2025-10-06T23:05:45 IST" duration-ms="1074">
     <groups>
     </groups>
-    <test started-at="2025-10-05T23:18:17 IST" name="Default test" finished-at="2025-10-05T23:18:19 IST" duration-ms="1986">
+    <test started-at="2025-10-06T23:05:44 IST" name="Default test" finished-at="2025-10-06T23:05:45 IST" duration-ms="1074">
       <class name="pages.OAuthTestClass">
-        <test-method signature="getAccessToken()[pri:0, instance:pages.OAuthTestClass@50b472aa]" started-at="2025-10-05T23:18:17 IST" name="getAccessToken" finished-at="2025-10-05T23:18:19 IST" duration-ms="1969" status="PASS">
+        <test-method signature="getAccessToken()[pri:0, instance:pages.OAuthTestClass@50b472aa]" started-at="2025-10-06T23:05:44 IST" name="getAccessToken" finished-at="2025-10-06T23:05:45 IST" duration-ms="1058" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getAccessToken -->
