@@ -1,7 +1,7 @@
-package pojo;
+package deserializationpojopackage;
 
-public class APIClass {
-
+public class MobileClass {
+	
 	private String courseTitle;
 	private String price;
 	public String getCourseTitle() {

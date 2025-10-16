@@ -1,7 +1,7 @@
-package pojo;
+package deserializationpojopackage;
 
-public class MobileClass {
-	
+public class WebAutomation {
+
 	private String courseTitle;
 	private String price;
 	public String getCourseTitle() {
@@ -16,4 +16,5 @@ public class MobileClass {
 	public void setPrice(String price) {
 		this.price = price;
 	}
+
 }

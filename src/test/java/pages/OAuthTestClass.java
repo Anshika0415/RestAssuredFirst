@@ -2,15 +2,16 @@ package pages;
 
 import org.testng.annotations.Test;
 
+import deserializationpojopackage.APIClass;
+import deserializationpojopackage.GetCourses;
+import deserializationpojopackage.WebAutomation;
+
 import static io.restassured.RestAssured.given;
 
 import java.util.List;
 
 import io.restassured.RestAssured;
 import io.restassured.path.json.JsonPath;
-import pojo.APIClass;
-import pojo.GetCourses;
-import pojo.WebAutomation;
 
 public class OAuthTestClass {
 	
